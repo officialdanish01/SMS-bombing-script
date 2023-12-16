@@ -24,7 +24,7 @@ def submit_no():
 root = Tk()
 
 root.geometry("250x220")
-root.title('MP Transport')
+root.title('SMS Bombing')
 
 SMS_Number = Label(root, text='Enter msg Count.:', fg='blue')
 SMS_Number.place(x=20,y=30)
